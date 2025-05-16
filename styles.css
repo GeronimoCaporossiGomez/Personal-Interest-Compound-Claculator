@@ -82,12 +82,9 @@ input:focus {
 }
 
 button {
-  position: relative;
-  overflow: hidden;
   grid-column: 1 / -1;
   padding: 0.75rem 1rem;
   width: 100%;
-  max-width: 300px;   /* ancho fijo para que no cambie */
   background: #28a745;
   color: #fff;
   border: none;
@@ -95,13 +92,11 @@ button {
   font-size: 1rem;
   cursor: pointer;
   transition: background 0.2s, box-shadow 0.2s;
-  transform: none !important;  /* elimina cualquier escalado */
 }
 
 button:hover {
   background: #218838;
   box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-  transform: none !important;
 }
 
 button::before {
@@ -112,12 +107,11 @@ button::before {
   width: 50%;
   height: 100%;
   background: linear-gradient(
-    to right,
+    120deg,
     rgba(144,238,144,0) 0%,
     rgba(144,238,144,0.6) 50%,
     rgba(144,238,144,0) 100%
   );
-  transform: none; /* sin skew para no alterar dimensiones */
   animation: shine 2s ease-in-out infinite;
 }
 
