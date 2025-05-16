@@ -3,24 +3,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const ctxSal  = document.getElementById('salaryChart').getContext('2d');
   const ctxPort = document.getElementById('portfolioChart').getContext('2d');
 
-  // Opciones comunes para ambos gráficos
   const commonOptions = {
     responsive: true,
     plugins: {
-      legend: {
-        position: 'top',
-        labels: { color: '#fff' }
-      }
+      legend: { position: 'top', labels: { color: '#fff' } }
     },
     scales: {
-      x: {
-        ticks: { color: '#fff' },
-        grid:  { color: 'rgba(255,255,255,0.2)' }
-      },
-      y: {
-        ticks: { color: '#fff' },
-        grid:  { color: 'rgba(255,255,255,0.2)' }
-      }
+      x: { ticks: { color: '#fff' }, grid: { color: 'rgba(255,255,255,0.2)' } },
+      y: { ticks: { color: '#fff' }, grid: { color: 'rgba(255,255,255,0.2)' } }
     }
   };
 
@@ -41,10 +31,10 @@ document.addEventListener('DOMContentLoaded', () => {
     data: {
       labels: [],
       datasets: [
-        { label: 'Portafolio Nominal',             data: [], fill: false, borderColor: '#74c0fc' },
-        { label: 'Portafolio Real',                data: [], fill: false, borderColor: '#ffd43b' },
-        { label: 'Ahorro Nominal (sin invertir)',  data: [], fill: false, borderColor: '#a5d8ff' },
-        { label: 'Ahorro Real (sin invertir)',     data: [], fill: false, borderColor: '#ffe066' }
+        { label: 'Portafolio Nominal',            data: [], fill: false, borderColor: '#74c0fc' },
+        { label: 'Portafolio Real',               data: [], fill: false, borderColor: '#ffd43b' },
+        { label: 'Ahorro Nominal (sin invertir)', data: [], fill: false, borderColor: '#a5d8ff' },
+        { label: 'Ahorro Real (sin invertir)',    data: [], fill: false, borderColor: '#ffe066' }
       ]
     },
     options: commonOptions
@@ -52,7 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   form.addEventListener('submit', ev => {
     ev.preventDefault();
-
     const years     = +form.years.value;
     const salaryAn  = +form.salary.value;
     const salGrow   = +form.salGrowth.value / 100;
@@ -81,25 +70,25 @@ document.addEventListener('DOMContentLoaded', () => {
       saveArr.push(+saveM.toFixed(2));
 
       if (t > 0) {
-        portfolio[t]    = portfolio[t-1] * (1 + mRet) + saveM;
-        baselineNom[t]  = baselineNom[t-1] + saveM;
+        portfolio[t]   = portfolio[t-1] * (1 + mRet) + saveM;
+        baselineNom[t] = baselineNom[t-1] + saveM;
       }
 
       const infFactor = Math.pow(1 + mInf, t);
-      realPort.push(+ (portfolio[t] / infFactor).toFixed(2));
-      baselineReal.push(+ (baselineNom[t] / infFactor).toFixed(2));
+      realPort.push(+(portfolio[t]   / infFactor).toFixed(2));
+      baselineReal.push(+(baselineNom[t] / infFactor).toFixed(2));
     }
 
-    salaryChart.data.labels                  = labels;
-    salaryChart.data.datasets[0].data        = salaryArr;
-    salaryChart.data.datasets[1].data        = saveArr;
+    salaryChart.data.labels               = labels;
+    salaryChart.data.datasets[0].data     = salaryArr;
+    salaryChart.data.datasets[1].data     = saveArr;
     salaryChart.update();
 
-    portChart.data.labels                    = labels;
-    portChart.data.datasets[0].data          = portfolio.map(v => v.toFixed(2));
-    portChart.data.datasets[1].data          = realPort;
-    portChart.data.datasets[2].data          = baselineNom.map(v => v.toFixed(2));
-    portChart.data.datasets[3].data          = baselineReal;
+    portChart.data.labels                 = labels;
+    portChart.data.datasets[0].data       = portfolio.map(v => v.toFixed(2));
+    portChart.data.datasets[1].data       = realPort;
+    portChart.data.datasets[2].data       = baselineNom.map(v => v.toFixed(2));
+    portChart.data.datasets[3].data       = baselineReal;
     portChart.update();
   });
 
