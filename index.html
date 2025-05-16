@@ -1,62 +1,60 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Calculadora de Inversión Compuesta</title>
-
   <link rel="stylesheet" href="styles.css"/>
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <header>
+  <header class="animate__animated animate__fadeInDown">
     <h1>Compound Investment Calculator</h1>
     <p>por Gerónimo Caporossi Gómez</p>
   </header>
-
   <main class="container">
-    <form id="input-form" class="form-section">
+    <form id="input-form" class="form-section animate__animated animate__fadeInLeft" style="--animate-duration: 0.8s">
       <h2>Parámetros de la inversión</h2>
-      <label>
+      <label class="animate__animated animate__fadeInUp" style="--animate-delay: 0.2s">
         Horizonte (años):
-        <input type="number" id="years" value="10" min="1" required>
+        <input type="number" id="years" value="0" min="1" required>
       </label>
-      <label>
+      <label class="animate__animated animate__fadeInUp" style="--animate-delay: 0.3s">
         Salario anual (€):
-        <input type="number" id="salary" value="30000" min="0" required>
+        <input type="number" id="salary" value="0" min="0" required>
       </label>
-      <label>
+      <label class="animate__animated animate__fadeInUp" style="--animate-delay: 0.4s">
         Crec. salarial anual (%):
-        <input type="number" id="salGrowth" value="3" step="0.1" min="0" required>
+        <input type="number" id="salGrowth" value="0" step="0.1" min="0" required>
       </label>
-      <label>
+      <label class="animate__animated animate__fadeInUp" style="--animate-delay: 0.5s">
         Ahorro mensual (% salario):
-        <input type="number" id="savePct" value="10" step="0.1" min="0" max="100" required>
+        <input type="number" id="savePct" value="0" step="0.1" min="0" max="100" required>
       </label>
-      <label>
+      <label class="animate__animated animate__fadeInUp" style="--animate-delay: 0.6s">
         Retorno anual (%):
-        <input type="number" id="retorno" value="7" step="0.1" min="0" required>
+        <input type="number" id="retorno" value="0" step="0.1" min="0" required>
       </label>
-      <label>
+      <label class="animate__animated animate__fadeInUp" style="--animate-delay: 0.7s">
         Inflación anual (%):
-        <input type="number" id="inflacion" value="2" step="0.1" min="0" required>
+        <input type="number" id="inflacion" value="0" step="0.1" min="0" required>
       </label>
-      <button type="submit">Calcular y Graficar</button>
+      <button type="submit" class="animate__animated animate__pulse animate__infinite" style="--animate-duration: 2s; --animate-delay: 0.8s">
+        Calcular y Graficar
+      </button>
     </form>
-
     <section class="chart-section">
-      <div class="chart-card">
+      <div class="chart-card animate__animated animate__fadeInUp" style="--animate-delay: 1s">
         <h3>Salario vs Ahorro Mensual</h3>
         <canvas id="salaryChart"></canvas>
       </div>
-      <div class="chart-card">
+      <div class="chart-card animate__animated animate__fadeInUp" style="--animate-delay: 1.2s">
         <h3>Portafolio: Nominal vs Real</h3>
         <canvas id="portfolioChart"></canvas>
       </div>
     </section>
   </main>
-
   <script src="calculadora.js" defer></script>
 </body>
 </html>
