@@ -70,6 +70,8 @@ input:focus {
   outline: none;
 }
 button {
+  position: relative;
+  overflow: hidden;
   grid-column: 1 / -1;
   padding: 0.75rem;
   background: #28a745;
@@ -78,12 +80,36 @@ button {
   border-radius: 8px;
   font-size: 1rem;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  transition: background 0.2s, box-shadow 0.2s;
 }
+
+button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(144,238,144,0) 0%,
+    rgba(144,238,144,0.6) 50%,
+    rgba(144,238,144,0) 100%
+  );
+  transform: skewX(-20deg);
+  animation: shine 2s ease-in-out infinite alternate;
+}
+
 button:hover {
   background: #218838;
-  transform: translateY(-2px) scale(1.02);
   box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+@keyframes shine {
+  0%   { left: -50%; }
+  100% { left: 150%; }
+}
+
 }
 .chart-section {
   display: grid;
