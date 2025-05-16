@@ -69,18 +69,6 @@ input:focus {
   box-shadow: 0 0 6px rgba(128,255,170,0.6);
   outline: none;
 }
-button {
-  position: relative;
-  overflow: hidden;
-  grid-column: 1 / -1;
-  padding: 0.75rem;
-  background: #28a745;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.2s, box-shadow 0.2s;
 }
 
 button {
