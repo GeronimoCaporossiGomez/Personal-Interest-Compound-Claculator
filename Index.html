@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial‐scale=1.0">
-  <title>Compound Investment Calculator</title>
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calculadora de Inversión Compuesta</title>
+
+  <link rel="stylesheet" href="styles.css"/>
+
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
@@ -14,36 +16,34 @@
   </header>
 
   <main class="container">
-    <section class="form-section">
+    <form id="input-form" class="form-section">
       <h2>Parámetros de la inversión</h2>
-      <form id="input-form">
-        <label>
-          Horizonte (años):
-          <input type="number" id="years" value="10" min="1" required>
-        </label>
-        <label>
-          Salario anual actual (€):
-          <input type="number" id="salary" value="30000" min="0" required>
-        </label>
-        <label>
-          Crecimiento salarial anual (%):
-          <input type="number" id="salGrowth" value="3" step="0.1" min="0" required>
-        </label>
-        <label>
-          Ahorro mensual (% salario):
-          <input type="number" id="savePct" value="10" step="0.1" min="0" max="100" required>
-        </label>
-        <label>
-          Retorno anual invertido (%):
-          <input type="number" id="retorno" value="7" step="0.1" min="0" required>
-        </label>
-        <label>
-          Inflación anual esperada (%):
-          <input type="number" id="inflacion" value="2" step="0.1" min="0" required>
-        </label>
-        <button type="submit">Calcular y Graficar</button>
-      </form>
-    </section>
+      <label>
+        Horizonte (años):
+        <input type="number" id="years" value="10" min="1" required>
+      </label>
+      <label>
+        Salario anual (€):
+        <input type="number" id="salary" value="30000" min="0" required>
+      </label>
+      <label>
+        Crec. salarial anual (%):
+        <input type="number" id="salGrowth" value="3" step="0.1" min="0" required>
+      </label>
+      <label>
+        Ahorro mensual (% salario):
+        <input type="number" id="savePct" value="10" step="0.1" min="0" max="100" required>
+      </label>
+      <label>
+        Retorno anual (%):
+        <input type="number" id="retorno" value="7" step="0.1" min="0" required>
+      </label>
+      <label>
+        Inflación anual (%):
+        <input type="number" id="inflacion" value="2" step="0.1" min="0" required>
+      </label>
+      <button type="submit">Calcular y Graficar</button>
+    </form>
 
     <section class="chart-section">
       <div class="chart-card">
@@ -56,7 +56,6 @@
       </div>
     </section>
   </main>
-
-  <script src="js/app.js"></script>
+  <script src="Calculadora.js" defer></script>
 </body>
 </html>
